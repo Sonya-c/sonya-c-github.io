@@ -1,0 +1,51 @@
+@use "sass:map";
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap');
+
+$VT323: 'VT323', monospace;
+$ZenKaku: 'Zen Kaku Gothic New', sans-serif;
+
+$font-family: (
+    'VT323': $VT323,
+    'ZenKaku': $ZenKaku
+);
+
+$font-size: (
+    'VT323': ( //
+        'text-r': 1.25rem,
+        'text-l': 1.5rem, // h6
+        'text-xl': 2rem, // h5
+        'text-2xl': 2.25rem, // h4
+        'text-3xl': 2.5rem, // h3
+        'text-4xl': 3rem, // h2
+        'text-5xl': 3.5rem // h1
+    ),
+    'ZenKaku': ( //
+        'text-s': 0.875rem,
+        'text-r': 1rem,
+        'text-m': 1.125rem,
+        'text-l': 1.25rem,
+        'text-xl': 1.5rem, // h6
+        'text-2xl': 2rem, // h5
+        'text-3xl': 2.25rem, // h4
+        'text-4xl': 2.5rem, // h3
+        'text-5xl': 3rem, // h2
+    ),
+);
+
+@mixin text-style($family, $size) {
+    font-family: map.get($font-family, $family);
+    font-size: map.get($font-size, $family, $size);
+}
+
+@each $family, $sizes in $font-size {
+    .#{$family} {
+        font-family: map.get($font-family, $family);
+
+        @each $size, $value in $sizes {
+            &.#{$size} {
+                font-size: map.get($font-size, $family, $size);
+            }
+        }
+    }
+}
