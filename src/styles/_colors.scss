@@ -11,3 +11,7 @@ $white: #F9F0E7;
 $black: #0D1117;
 
 $violet-gradient: linear-gradient(to bottom, $dark-violet 0%, $black 100%);
+
+$white-filter: brightness(0) saturate(100%) invert(92%) sepia(4%) saturate(1481%) hue-rotate(321deg) brightness(111%) contrast(92%);
+
+$box-shadow: 0px 4px 4px 0px $black;

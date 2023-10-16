@@ -33,7 +33,7 @@ $font-size: (
     ),
 );
 
-@mixin text-style($family, $size) {
+@mixin text-style($size: 'text-r', $family: 'ZenKaku') {
     font-family: map.get($font-family, $family);
     font-size: map.get($font-size, $family, $size);
 }

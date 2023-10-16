@@ -1,8 +1,20 @@
 import "./App.scss";
+import Icon from "./components/Icon/Icon";
+import Profile
+  from "./components/Profile/Profile";
+import Button from './components/Button/Button';
 
 function App() {
-  return (<p className="VT323 text-2xl">Hola mundo
-  </p>);
+  return (<>
+    <Icon
+      iconName="python"
+      iconExtension="png"
+      iconFolder="/assets/icons/" />
+    <Profile />
+    <Button
+      content={"Say 'Hello!'"}
+      onClick={() => console.log("Hello!")} />
+  </>);
 }
 
 export default App;
