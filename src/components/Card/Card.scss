@@ -1,27 +1,21 @@
 @use '../../styles/colors' as colors;
 @use '../../styles/typography' as typography;
+@use '../../styles/media' as media;
 
 .card {
     $padding: 1.25rem;
     width: fit-content;
     border: 3px solid colors.$black;
     position: relative;
-    margin-bottom: $padding;
+    margin: $padding;
+    box-sizing: border-box;
 
-    &.shadow-left {
-        margin-left: $padding;
-
-        .card-shadow {
-            left: -$padding;
-        }
+    &.shadow-left .card-shadow {
+        left: -$padding;
     }
 
-    &.shadow-right {
-        margin-right: $padding;
-
-        .card-shadow {
-            right: -$padding;
-        }
+    &.shadow-right .card-shadow {
+        right: -$padding;
     }
 
     .card-content {
@@ -41,7 +35,12 @@
 
     &.about-card {
         max-width: 520px;
+        width: calc(100% - 100px);
         transform: rotate(5deg);
+
+        @include media.mobile() {
+            width: calc(100% - 50px);
+        }
 
         .card-content {
             background-color: colors.$pale-cyan;
@@ -52,6 +51,22 @@
                 @include typography.text-style($family: 'VT323', $size: 'text-5xl');
             }
 
+            @include media.tablet() {
+                @include typography.text-style($size: 'text-r');
+
+                h1 {
+                    @include typography.text-style($family: 'VT323', $size: 'text-3xl')
+                }
+            }
+
+            @include media.mobile() {
+                @include typography.text-style($size: 'text-s');
+
+                h1 {
+                    @include typography.text-style($family: 'VT323', $size: 'text-xl');
+                    margin: 0;
+                }
+            }
         }
 
         .card-shadow {

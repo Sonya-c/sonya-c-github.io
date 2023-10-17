@@ -37,15 +37,3 @@ $font-size: (
     font-family: map.get($font-family, $family);
     font-size: map.get($font-size, $family, $size);
 }
-
-@each $family, $sizes in $font-size {
-    .#{$family} {
-        font-family: map.get($font-family, $family);
-
-        @each $size, $value in $sizes {
-            &.#{$size} {
-                font-size: map.get($font-size, $family, $size);
-            }
-        }
-    }
-}

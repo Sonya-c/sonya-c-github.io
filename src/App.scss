@@ -1,7 +1,99 @@
 @use './styles/_colors.scss' as colors;
 @use './styles/_typography.scss' as typography;
+@use './styles/media.scss' as media;
 
 body {
     font-family: typography.$ZenKaku;
     color: colors.$black;
+    margin: 0;
+    padding: 0;
+    background: url("~/public/assets/images/classy-fabric.png"), colors.$violet-gradient;
+    min-height: 100vh;
+
+    header,
+    section,
+    footer {
+        height: 100vh;
+    }
+
+    header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        overflow: hidden;
+
+        @include media.tablet() {
+            flex-direction: column-reverse;
+            justify-content: space-evenly;
+        }
+
+        @include media.mobile() {
+            gap: 10px;
+        }
+
+        img.profile {
+            max-width: 300px;
+        }
+
+        .figure {
+            z-index: -1;
+            position: absolute;
+
+            &.rectangle {
+                width: 180px;
+                height: 180px;
+                top: -30px;
+                left: -50px;
+                border: 3px solid colors.$dark-magenta;
+                transition: all 0.4s ease-in-out;
+                animation-delay: 0s;
+                animation: floating 6s ease-in-out infinite;
+            }
+
+            &.circle {
+                width: 280px;
+                height: 280px;
+                bottom: 10px;
+                right: -50px;
+                border-radius: 100%;
+                border: 3px dashed colors.$dark-cyan;
+                animation-delay: .5s;
+                animation: floating 6s ease-in-out infinite;
+            }
+
+            &.dot-grid {
+                width: calc(100vw/3);
+                min-width: 300px;
+
+                &#grid1 {
+                    bottom: 10px;
+                    left: 0px;
+
+                }
+
+                &#grid2 {
+                    top: 10px;
+                    right: 10px;
+                }
+            }
+        }
+
+    }
+}
+
+
+@keyframes floating {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
 }
