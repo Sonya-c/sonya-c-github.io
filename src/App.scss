@@ -2,6 +2,10 @@
 @use './styles/_typography.scss' as typography;
 @use './styles/media.scss' as media;
 
+html {
+    scroll-behavior: smooth
+}
+
 body {
     font-family: typography.$ZenKaku;
     color: colors.$black;
@@ -14,15 +18,15 @@ body {
     section,
     footer {
         height: 100vh;
+        overflow: hidden;
+        position: relative;
     }
 
     header {
-        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 50px;
-        overflow: hidden;
 
         @include media.tablet() {
             flex-direction: column-reverse;
@@ -37,52 +41,137 @@ body {
             max-width: 300px;
         }
 
-        .figure {
-            z-index: -1;
-            position: absolute;
-
-            &.rectangle {
-                width: 180px;
-                height: 180px;
-                top: -30px;
-                left: -50px;
-                border: 3px solid colors.$dark-magenta;
-                transition: all 0.4s ease-in-out;
-                animation-delay: 0s;
-                animation: floating 6s ease-in-out infinite;
-            }
-
-            &.circle {
-                width: 280px;
-                height: 280px;
-                bottom: 10px;
-                right: -50px;
-                border-radius: 100%;
-                border: 3px dashed colors.$dark-cyan;
-                animation-delay: .5s;
-                animation: floating 6s ease-in-out infinite;
-            }
-
-            &.dot-grid {
-                width: calc(100vw/3);
-                min-width: 300px;
-
-                &#grid1 {
-                    bottom: 10px;
-                    left: 0px;
-
-                }
-
-                &#grid2 {
-                    top: 10px;
-                    right: 10px;
-                }
-            }
+        .figure.rectangle {
+            width: 180px;
+            height: 180px;
+            top: -30px;
+            left: -50px;
         }
 
+        .figure.circle {
+            width: 280px;
+            height: 280px;
+            bottom: 10px;
+            right: -50px;
+        }
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .main-content {
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            height: 100%;
+            margin: 10px;
+            box-sizing: border-box;
+
+            @include media.tablet() {
+                justify-content: space-evenly;
+            }
+
+            h2 {
+                color: colors.$pale-magenta;
+                text-transform: uppercase;
+                @include typography.text-style("text-4xl");
+
+                @include media.tablet() {
+                    @include typography.text-style("text-2xl");
+                }
+            }
+
+            .grid {
+                justify-content: center;
+            }
+
+            .icon {
+                color: colors.$white;
+                font-weight: bold;
+
+                img {
+                    filter: colors.$white-filter;
+                }
+            }
+
+
+        }
+
+        .copyright {
+            color: colors.$white;
+            text-align: center;
+            align-self: flex-end;
+            align-self: baseline;
+            width: 100%;
+        }
+
+        .figure.triangle {
+            top: 50px;
+            right: 50px;
+        }
+
+        .figure.circle {
+            width: 280px;
+            height: 280px;
+            bottom: 50px;
+            left: -80px;
+        }
     }
 }
 
+.figure {
+    z-index: -1;
+    position: absolute;
+
+    &.rectangle {
+        border: 3px solid colors.$dark-magenta;
+        transition: all 0.4s ease-in-out;
+        animation-delay: 0s;
+        animation: floating 6s ease-in-out infinite;
+    }
+
+    &.circle {
+        border-radius: 100%;
+        border: 3px dashed colors.$dark-cyan;
+    }
+
+    &.triangle {
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 60px solid colors.$dark-magenta;
+        animation-delay: .5s;
+        animation: floating 6s ease-in-out infinite;
+    }
+
+    &.dot-grid {
+        width: calc(100vw/3);
+        min-width: 300px;
+
+        &#grid1 {
+            bottom: 10px;
+            left: 0px;
+
+        }
+
+        &#grid2 {
+            top: 10px;
+            right: 10px;
+        }
+    }
+}
+
+.grid {
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+
+}
 
 @keyframes floating {
     0% {
