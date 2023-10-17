@@ -9,6 +9,14 @@ div.icon {
     padding: $padding;
 
 
+    &.icon-inline {
+        padding: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        vertical-align: middle;
+    }
+
     .icon-image,
     img {
         width: 100%;
