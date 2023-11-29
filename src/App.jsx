@@ -18,7 +18,7 @@ function App() {
     <footer id="contact">
       <div className="main-content">
         <h2>Contact</h2>
-        <div class="grid">
+        <div className="grid">
           <a href="https://github.com/sonya-c/" target="_blank" rel="noreferrer">
             <Icon iconName="github" iconExtension="svg" />
           </a>

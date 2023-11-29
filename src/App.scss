@@ -6,7 +6,15 @@ html {
     scroll-behavior: smooth
 }
 
+* {
+    transition: all 0.4s ease-in-out;
+}
+
 body {
+    transition: all 0.4s ease-in-out;
+    animation: zoomIn .5s forwards;
+    opacity: 0;
+
     font-family: typography.$ZenKaku;
     color: colors.$black;
     margin: 0;
@@ -137,6 +145,8 @@ body {
     &.circle {
         border-radius: 100%;
         border: 3px dashed colors.$dark-cyan;
+        animation-delay: .5s;
+        animation: floating 6s ease-in-out infinite;
     }
 
     &.triangle {
@@ -171,6 +181,18 @@ body {
     gap: 100px;
     flex-wrap: wrap;
 
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 @keyframes floating {
