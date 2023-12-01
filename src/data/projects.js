@@ -5,7 +5,7 @@ const projects = [
         techStack: ["Python"],
         githubRepo: "https://github.com/Sonya-c/news-headlines-generator",
         liveLink: null,
-        image: 'image-restaoration.png'
+        image: 'new-generator.png'
     },
     {
         title: "Image restoration",
@@ -13,7 +13,7 @@ const projects = [
         techStack: ["Python"],
         githubRepo: "https://github.com/Sonya-c/Image_restoration",
         liveLink: null,
-        image: 'new-generator.png'
+        image: 'image-restaoration.png'
     }
 ];
 
