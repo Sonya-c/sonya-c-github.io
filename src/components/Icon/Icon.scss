@@ -1,4 +1,5 @@
 @use '../../styles/typography' as typography;
+@use '../../styles/media' as media;
 
 div.icon {
     $width: 3.125rem; // 50px
@@ -8,6 +9,12 @@ div.icon {
     width: $width + 2*$padding;
     padding: $padding;
 
+
+    @include media.mobile() {
+        width: 3rem;
+        height: 3rem;
+        padding: 0.5rem;
+    }
 
     &.icon-inline {
         padding: 0;

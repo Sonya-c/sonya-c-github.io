@@ -14,120 +14,32 @@ body {
     transition: all 0.4s ease-in-out;
     animation: zoomIn .5s forwards;
     opacity: 0;
-
     font-family: typography.$ZenKaku;
     color: colors.$black;
     margin: 0;
     padding: 0;
     background: url("~/public/assets/images/classy-fabric.png"), colors.$violet-gradient;
     min-height: 100vh;
+}
 
-    header,
-    section,
-    footer {
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
+h2 {
+    color: colors.$pale-magenta;
+    text-transform: uppercase;
+    @include typography.text-style("text-4xl");
+
+    @include media.tablet() {
+        @include typography.text-style("text-2xl");
     }
+}
 
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
+.section {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 
-        @include media.tablet() {
-            flex-direction: column-reverse;
-            justify-content: space-evenly;
-        }
-
-        @include media.mobile() {
-            gap: 10px;
-        }
-
-        img.profile {
-            max-width: 300px;
-        }
-
-        .figure.rectangle {
-            width: 180px;
-            height: 180px;
-            top: -30px;
-            left: -50px;
-        }
-
-        .figure.circle {
-            width: 280px;
-            height: 280px;
-            bottom: 10px;
-            right: -50px;
-        }
-    }
-
-    footer {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-        .main-content {
-            max-width: 800px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            height: 100%;
-            margin: 10px;
-            box-sizing: border-box;
-
-            @include media.tablet() {
-                justify-content: space-evenly;
-            }
-
-            h2 {
-                color: colors.$pale-magenta;
-                text-transform: uppercase;
-                @include typography.text-style("text-4xl");
-
-                @include media.tablet() {
-                    @include typography.text-style("text-2xl");
-                }
-            }
-
-            .grid {
-                justify-content: center;
-            }
-
-            .icon {
-                color: colors.$white;
-                font-weight: bold;
-
-                img {
-                    filter: colors.$white-filter;
-                }
-            }
-
-
-        }
-
-        .copyright {
-            color: colors.$white;
-            text-align: center;
-            align-self: flex-end;
-            align-self: baseline;
-            width: 100%;
-        }
-
-        .figure.triangle {
-            top: 50px;
-            right: 50px;
-        }
-
-        .figure.circle {
-            width: 280px;
-            height: 280px;
-            bottom: 50px;
-            left: -80px;
-        }
+    .main-content {
+        max-width: 800px;
     }
 }
 
@@ -145,7 +57,7 @@ body {
     &.circle {
         border-radius: 100%;
         border: 3px dashed colors.$dark-cyan;
-        animation-delay: .5s;
+        animation-delay: .3s;
         animation: floating 6s ease-in-out infinite;
     }
 
@@ -176,12 +88,7 @@ body {
     }
 }
 
-.grid {
-    display: flex;
-    gap: 100px;
-    flex-wrap: wrap;
 
-}
 
 @keyframes zoomIn {
     from {

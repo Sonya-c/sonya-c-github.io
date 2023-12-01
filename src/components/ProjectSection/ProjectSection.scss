@@ -1,0 +1,84 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/typography' as typography;
+@use '../../styles/media' as media;
+
+section {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-height: none !important;
+	height: fit-content !important;
+
+	.main-content {
+		max-width: none !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.card.project {
+		color: colors.$white;
+		margin-bottom: 50px;
+		max-width: 800px;
+
+		img {
+			object-fit: fill;
+			width: 100%;
+
+		}
+
+		.card-content {
+			background-color: colors.$dark-violet;
+
+			.dot {
+				padding-left: 1.188rem;
+				vertical-align: middle;
+				font-size: 2rem;
+			}
+
+			span.stack {
+				vertical-align: middle;
+				background-color: colors.$pale-violet;
+				padding: 5px;
+				font-size: .8rem;
+				border-radius: 1rem;
+				font-weight: bold;
+			}
+
+			a {
+				color: colors.$pale-magenta;
+				font-weight: bold;
+				text-decoration: none;
+				cursor: pointer;
+
+				&:hover {
+					color: colors.$dark-cyan;
+
+					.icon img {
+						filter: colors.$dark-cyan-filter;
+					}
+				}
+
+				.icon {
+					width: 2rem;
+					height: 2rem;
+
+					img {
+
+						filter: colors.$pale-magenta-filter;
+					}
+				}
+
+				span {
+					padding-left: 1.188rem;
+					vertical-align: middle;
+				}
+			}
+		}
+
+		.card-shadow {
+			background-color: colors.$pale-violet;
+		}
+	}
+}

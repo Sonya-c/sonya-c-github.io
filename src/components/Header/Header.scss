@@ -1,0 +1,77 @@
+@use '../../styles/media' as media;
+@use '../../styles/colors' as colors;
+@use '../../styles/typography' as typography;
+
+header {
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    .card.about {
+        max-width: 520px;
+        width: calc(100% - 100px);
+        transform: rotate(5deg);
+
+        @include media.mobile() {
+            width: calc(100% - 50px);
+        }
+
+        .card-content {
+            background-color: colors.$pale-cyan;
+            @include typography.text-style($size: 'text-l');
+
+            h1 {
+                color: colors.$dark-magenta;
+                @include typography.text-style($family: 'VT323', $size: 'text-5xl');
+            }
+
+            @include media.tablet() {
+                @include typography.text-style($size: 'text-r');
+
+                h1 {
+                    @include typography.text-style($family: 'VT323', $size: 'text-3xl')
+                }
+            }
+
+            @include media.mobile() {
+                @include typography.text-style($size: 'text-s');
+
+                h1 {
+                    @include typography.text-style($family: 'VT323', $size: 'text-xl');
+                    margin: 0;
+                }
+            }
+        }
+
+        .card-shadow {
+            background-color: colors.$dark-cyan;
+        }
+    }
+
+    @include media.tablet() {
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+    }
+
+    @include media.mobile() {
+        gap: 10px;
+    }
+
+    img.profile {
+        max-width: 300px;
+    }
+
+    .figure.rectangle {
+        width: 180px;
+        height: 180px;
+        top: -30px;
+        left: -50px;
+    }
+
+    .figure.circle {
+        width: 280px;
+        height: 280px;
+        bottom: 10px;
+        right: -50px;
+    }
+}
